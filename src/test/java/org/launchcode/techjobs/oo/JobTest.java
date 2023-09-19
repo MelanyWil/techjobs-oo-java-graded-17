@@ -9,7 +9,7 @@ public class JobTest {
 
     //TODO: Test that each job has a unique ID
 
-    @Test public void emptyConstructorSetsUniqueId() {
+    @Test public void testSettingJobId() {
         String msg = "the empty constructor sets a unique ID";
         Job job1 = new Job();
         Job job2 = new Job();
@@ -38,7 +38,7 @@ public class JobTest {
 
     //TODO: Test the equals() method
     @Test
-    public void testsJobsForEquality() {
+    public void testJobsForEquality() {
         Job job1 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"),
                 new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         Job job2 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"),
