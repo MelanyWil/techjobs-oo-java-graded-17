@@ -47,4 +47,51 @@ public class JobTest {
 
     }
 
+    //TODO: Test the toString() method
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        String startMsg = "Test if toString starts with a blank line.";
+        String endMsg = "Test if toString ends with a blank line.";
+        Job job1 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+        String result = job1.toString();
+        String expect = System.lineSeparator();
+        assertTrue(startMsg, result.startsWith(expect));
+        assertTrue(endMsg, result.startsWith(expect));
+
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        String msg = "Test if toString contains the correct labels and data";
+        String newline = System.lineSeparator();
+        Job job1 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+        String result = job1.toString();
+        String expect = newline + "ID: " + job1.getId() + newline +
+                "Name: " + "Product Tester" + newline +
+                "Employer: " + "ACME" + newline +
+                "Location: " + "Desert" + newline +
+                "Position Type: " + "Quality Control" + newline +
+                "Core Competency: " + "Persistence" + newline;
+        assertEquals(msg, result, expect);
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        String msg = "Test that an empty field returns Data not available";
+        String newline = System.lineSeparator();
+        Job job1 = new Job("", new Employer(""), new Location(null),
+                new PositionType(), new CoreCompetency());
+        String result = job1.toString();
+        String expect = newline + "ID: " + job1.getId() + newline +
+                "Name: " + "Data not available" + newline +
+                "Employer: " + "Data not available" + newline +
+                "Location: " + "Data not available" + newline +
+                "Position Type: " + "Data not available" + newline +
+                "Core Competency: " + "Data not available" + newline;
+        assertEquals(msg, result, expect);
+
+    }
 }

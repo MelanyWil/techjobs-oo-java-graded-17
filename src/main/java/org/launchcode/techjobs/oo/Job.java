@@ -45,6 +45,25 @@ public class Job {
     @Override
     public int hashCode() { return Objects.hash(getId());}
 
+    @Override
+    public String toString() {
+        String newline = System.lineSeparator();
+        if (name == null || name.isEmpty()) {
+            return newline + "ID: " + id + newline +
+                    "Name: " + "Data not available" + newline +
+                    "Employer: " + employer + newline +
+                    "Location: " + location + newline +
+                    "Position Type: " + positionType + newline +
+                    "Core Competency: " + coreCompetency + newline;
+        }
+        return newline + "ID: " + id + newline +
+                "Name: " + name + newline +
+                "Employer: " + employer + newline +
+                "Location: " + location + newline +
+                "Position Type: " + positionType + newline +
+                "Core Competency: " + coreCompetency + newline;
+
+    }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
