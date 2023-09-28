@@ -58,7 +58,7 @@ public class JobTest {
         String result = job1.toString();
         String expect = System.lineSeparator();
         assertTrue(startMsg, result.startsWith(expect));
-        assertTrue(endMsg, result.startsWith(expect));
+        assertTrue(endMsg, result.endsWith(expect));
 
     }
 
